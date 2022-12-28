@@ -1,10 +1,10 @@
-const liveserver = require("live-server");
+// const liveserver = require("live-server");
 
-const params = {
-  host: "localhost",
-  port: 3000,
-  open: false,
-  root: "./client",
-};
+// const params = {
+//   host: "localhost",
+//   port: 3000,
+//   open: false,
+//   root: "./client",
+// };
 
-liveserver.start(params);
+// liveserver.start(params);
