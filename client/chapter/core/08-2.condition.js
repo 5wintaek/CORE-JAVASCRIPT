@@ -42,15 +42,19 @@ let whichTruthy = false || "" || [2, 3].length || { thisIsTruthy: true };
 // ? tolowercase() 를 이용하여 소,대문자 구분에도 사용
 let userName = prompt("사용자 아이디를 입력해주세요.", "");
 
-if (userName.toLowerCase() === "admin") {
+if (userName?.toLowerCase() === "admin") {
+  // ?가 있으면 그 뒤에 null이나 undefiend이 들어가면 자동 취소가된다
+  // 전부 다 소문자로 떨어지기 떄문에 admin도 소문자로 바꿔줌
   let pw = prompt("비밀번호를 입력해 주세요.", "");
 
-  if (pw === "TheMaster") {
+  if (pw?.toLowerCase() === "themaster") {
+    // 전부 다 소문자로 떨어지기 떄문에 themaster 를 소문자로 바꿔줌
     console.log("환영합니다.");
   } else {
     console.log("취소되었습니다.");
   }
-} else if (userName === "" || userName === null) {
+} else if (userName.replace(/\s*/g, "") === "" || userName === null) {
+  // null 은 esc
   console.log("취소했습니다.");
 } else {
   console.log("인증되지 않은 사용자 입니다.");
