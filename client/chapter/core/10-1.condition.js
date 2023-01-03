@@ -65,17 +65,21 @@ console.log(result);
 2. validation
 3. return value
 4. parameter, argument
-5. test [Test Driven Development]
+5. test [Test Driven Development] 테스트 주도 개발, 자바스크립트 범섐꺼에 있음
 */
 
 // rem(pxValue: number|string, base: number):string;
 function rem(pxValue, base) {
-  if (typeof pxValue === "string") {
-    parseInt(pxValue, 10); // 뒤에 10 은 10진수
-  }
-  if (typeof base === "string") {
-    parseInt(base, 10); // 뒤에 10 은 10진수
-  }
+  typeof pxValue === "string" && (pxValue = parseInt(pxValue, 10));
+
+  //  if (typeof pxValue === "string") {
+  //   parseInt(pxValue, 10); // 뒤에 10 은 10진수
+  // }
+
+  typeof base === "string" && (base = parseInt(base, 10));
+  // ? if (typeof base === "string") {
+  //   parseInt(base, 10); // 뒤에 10 은 10진수
+  // }
 
   return `${pxValue / base}rem`;
 }
