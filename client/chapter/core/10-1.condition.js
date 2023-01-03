@@ -28,14 +28,14 @@ function getRandomValue() {
 }
 
 function calcPrice(num1, num2, num3 = getRandomValue(), num4 = getRandomValue()) {
-  if (!num1) {
-    throw new Error("calcPrice 함수의 첫 번째 인수는 필수 입력값이다. ");
+  if (!num1 || !num2) {
+    throw new Error("calcPrice 함수의 첫 번째와 두번째 인수는 필수 입력값이다. ");
   }
 
   return num1 + num2 + num3 + num4;
 }
 
-let result = calcPrice();
+let result = calcPrice(10, 20);
 console.log(result);
 
 // 함수 선언
