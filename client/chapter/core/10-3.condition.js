@@ -1,21 +1,36 @@
 /* ---------------------------------------------------------------------- */
 /* Functions → Arrow                                                      */
 /* ---------------------------------------------------------------------- */
+let arr = [1, 2, 3, 4];
+function sum(...args) {
+  console.log(args);
+}
 
-const calculateTotal = function (moneyA, moneyB, moneyC, moneyD) {
-  return moneyA + moneyB + moneyC + moneyD;
+// sum(1,2,3,4,)
+// rest parameter
+const calculateTotal = (...args) => {
+  let total = 0;
+
+  args.forEach((item) => {
+    total += item;
+  });
+
+  // args.reduce((acc,item)=> acc + item )
+  // console.log();
+
+  return total;
 };
 
 let resultX = calculateTotal(10000, 8900, 1360, 2100);
-let resultY = calculateTotal(21500, 3200, 9800, 4700);
+let resultY = calculateTotal(215010, 3200, 9800, 4700);
 let resultZ = calculateTotal(9000, -2500, 5000, 11900);
 
-console.log(resultX);
-console.log(resultY);
-console.log(resultZ);
+// console.log(resultX);
+// console.log(resultY);
+// console.log(resultZ);
 
 // 함수 선언 → 화살표 함수 (표현)식
-let calcAllMoney;
+let calcAllMoney = (a, b, c, d) => a + b + c + d;
 
 // 화살표 함수와 this
 
