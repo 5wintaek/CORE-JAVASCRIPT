@@ -49,7 +49,7 @@ let calculateTotal = function (moneyA, moneyB, moneyC, moneyD) {
   } */
   // return moneyA + moneyB + moneyC + moneyD;
 
-  return total;
+  // return total;
 };
 
 console.log(calculateTotal(100, 500, 300, 150, 400, 150)); // 값이 더 늘어나면 무시함
@@ -60,10 +60,60 @@ let anonymousFunctionExpression = function () {};
 let namedFunctionExpression = function hello() {};
 
 // 콜백 함수 (표현)식
-let callbackFunctionExpression;
+let callbackFunctionExpression = function (url, resolve, reject) {
+  // if (typeof url === "string" && url.includes('http') && url.includes('www')) {
+  if (typeof url === "string" && url.match(/http.+www/)) {
+    resolve(url);
+  } else {
+    reject();
+  }
+};
+
+callbackFunctionExpression(
+  "https://www.naver.com",
+  function (url) {
+    console.log(`${url}해당 페이지로 이동합니다`); // 매개변수는 함수 안에서 사용 가능하니깐
+  },
+  function () {
+    console.log("url 입력 정보가 올바르지 않습니다");
+  }
+);
+
+// ?  forEach 는 내부에 이런 식으로 구현되어 있을려나요 ?
+// ?  forEach(function(currentValue, index, array){}, thisArg)
+// ? arr.forEach(function(item, index){})
 
 // 함수 선언문 vs. 함수 (표현)식
+// ? 함수 선언 function aa(){}
+
+// ?const bb = function(){}
+// ?함수표현식 const 가 호이스팅되면서 function 을 만나 실행
 
 // 즉시 실행 함수 (표현)식
+// 즉시 호출될 수 있는 함수의 표현식
 // Immediately Invoked Function Expression
+// 오늘날의 많이 쓰이진 않음 , 전역에 오염되지 않게 하려고 쓰임
 let IIFE;
+
+const MASTER = (function () {
+  // parameter
+
+  const KEY = "alalal#%";
+
+  //내가 내보내고 싶은 항목들만 내보낼거야
+  //모듈로서의 활용
+  // 정보 은닉화 : 외부의 접근을 차단
+  // 일부 정보만 노추
+
+  return {
+    getkey: function () {
+      return KEY;
+    },
+  };
+})(); // arguments
+
+// var 함수 스코프
+// let, const 블록 스코프
+
+//!  접근 불가능 console.log(KEY);
+console.log(MASTER.getkey());
