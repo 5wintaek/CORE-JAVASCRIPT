@@ -53,11 +53,40 @@ console.log(result);
 // 매개 변수 기본 값
 
 // 좋은 함수 작성 여건
+// ? 1. 하나의 기능만을 수행해야 한다. (관심사의 분리)
+// ? 2. 읽었을떄 바로 기능을 알 수 있게끔 , ( 이름과 매개변수의 이름을 직관적이게 적어야 한다. )
+// ? 3. 재사용성이 좋아야 한다.
 
 /* 다음 함수를 작성해봅니다. -------------------------------------------------- */
 
+// * 함수 원리 설명
+/*
+1. function name
+2. validation
+3. return value
+4. parameter, argument
+5. test [Test Driven Development]
+*/
+
 // rem(pxValue: number|string, base: number):string;
-// let rem;
+function rem(pxValue, base) {
+  if (typeof pxValue === "string") {
+    parseInt(pxValue, 10); // 뒤에 10 은 10진수
+  }
+  if (typeof base === "string") {
+    parseInt(base, 10); // 뒤에 10 은 10진수
+  }
+
+  return `${pxValue / base}rem`;
+}
+
+// console.assert(rem(20) === "1.25rem");
+// console.assert(rem("30px") === "1.875rem");
+// console.assert(rem("56px") === "5.6rem");
+
+// rem(20); // * 1.25rem 숫자열
+// rem("30px"); // * '1.825rem' 문자열
+rem("56px", 10); // * '5.6rem'
 
 // css(node: string, prop: string, value: number|strung) : string;
 // let css;
