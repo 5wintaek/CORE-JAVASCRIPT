@@ -8,11 +8,30 @@
 // console.log("총 합 = ", 560 + 5000 + 27100 + 10200);
 // console.log("총 합 = ", 9000 - 2500 + 5000 + 11900);
 
-function calcPrice(num1, num2, num3, num4) {
+// // ! default parameter 사용하기 전
+// function calcPrice(num1, num2, num3, num4) {
+//   if (!num4) {
+//     num4 = 0;
+//   }
+//   if (!num3) {
+//     num3 = 0;
+//   }
+
+//   return num1 + num2 + num3 + num4;
+// }
+
+// let result = calcPrice(100, 5000);
+// console.log(result);
+// ! default parameter 사용하기 후
+function getRandomValue() {
+  return Math.random() > 0.5 ? 1 : 0;
+}
+
+function calcPrice(num1, num2, num3 = getRandomValue(), num4 = getRandomValue()) {
   return num1 + num2 + num3 + num4;
 }
 
-let result = calcPrice(100, 5000, 200, 350);
+let result = calcPrice(100, 5000);
 console.log(result);
 
 // 함수 선언
