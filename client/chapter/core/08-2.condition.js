@@ -40,6 +40,7 @@ let whichTruthy = false || "" || [2, 3].length || { thisIsTruthy: true };
 // ! 로그인 구현하기 , 논리연산자 맨 마지막 문제
 // esc 누른값은 null
 // ? tolowercase() 를 이용하여 소,대문자 구분에도 사용
+//
 let userName = prompt("사용자 아이디를 입력해주세요.", "");
 
 if (userName?.toLowerCase() === "admin") {
@@ -54,8 +55,13 @@ if (userName?.toLowerCase() === "admin") {
     console.log("취소되었습니다.");
   }
 } else if (userName.replace(/\s*/g, "") === "" || userName === null) {
-  // null 은 esc
-  console.log("취소했습니다.");
+  // null 은 esc  (/\s*/g, "") -> 문자열 내 공백포함
+  /\s/;
+  console.log("나는 공백문자 포함이야 아무것도 입력안했어");
 } else {
-  console.log("인증되지 않은 사용자 입니다.");
+  console.log("나는 null 이야 esc를 눌러서 생겼지");
 }
+
+// ? 연습문제
+
+// alert(alert(1) || 2 || alert(3));

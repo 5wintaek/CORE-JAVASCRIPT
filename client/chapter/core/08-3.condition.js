@@ -13,6 +13,22 @@ let thisTime = NIGHT;
 
 switch (thisTime) {
   case MORNING:
+    console.log("디코ㄱ");
+    break;
+  case DINNER:
+    console.log("간계밥");
+    break;
+  case NIGHT:
+    console.log("운동가자");
+    break;
+  case LATE_NIGHT:
+  case DAWN:
+    console.log("스터디");
+    break;
+}
+
+/* switch (thisTime) {
+  case MORNING:
     console.log("디스코드를 킨다");
     break;
   case LUNCH:
@@ -28,7 +44,7 @@ switch (thisTime) {
   case DAWN:
     console.log("잘준비,,,");
     break;
-}
+} */
 /* 다양한 상황에 맞게 처리 --------------------------------------------------- */
 
 // 조건 유형(case): '아침'
@@ -66,7 +82,8 @@ if (thisTime === MORNING) {
 
 // ? 0~6 값을 받는다
 // ! return 은 종료라고 생각하면 된다. 함수를 종료시킴
-
+// Math.round() => 반올림
+// Math.random() -> () 값 지정 안하면 0이상 1미만 구간에서 근사값 대입
 function getRandom(n) {
   return Math.round(Math.random() * n);
 }

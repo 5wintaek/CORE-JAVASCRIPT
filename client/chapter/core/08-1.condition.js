@@ -18,14 +18,23 @@ if (number > 0) {
 }
  */
 // ? 삼항연산자로 위에 코드를 다시 썼을떄
-/* let number = prompt('숫자를 입력해 주세요',0);
+/* let number = prompt("숫자를 입력해 주세요", 0);
 
-let message = 
-(number > 0) ? '1' : 
-(number < 0) ? '-1': 
-'아무것도 아닙니다.';
+let call = number > 0 ? "1" : number < 0 ? "-1" : "아무것도 아닙니다.";
 
-console.log(message); */
+console.log(call);
+ */
+
+// ? 주석풀기
+/* let n = prompt("입력ㄱ");
+
+if (n > 0) {
+  console.log(1);
+} else if (n <= 0) {
+  console.log(-1);
+} else {
+  console.log("입력안함");
+} */
 
 // ?
 
@@ -42,15 +51,13 @@ let didWatchMovie = "yes";
 // 영화 볼거니?
 let goingToWatchMovie = "no";
 
-let message = prompt("영화볼거야?");
-
 // if 문(statement)
 if (didWatchMovie.includes("yes")) {
   console.log("그래 봐야지!");
 } else if (goingToWatchMovie == "yes") {
   console.log("외않봐?");
 } else {
-  console.log("똥쟁");
+  console.log("오케이안녕");
 }
 
 // else 절(caluse)
@@ -60,3 +67,22 @@ if (didWatchMovie.includes("yes")) {
 // 조건부 연산자
 
 // 멀티 조건부 연산자 식
+
+// ? 연습문제 풀이
+/* let age = prompt("나이입력ㄱ");
+
+let message = age < 3 ? "baby" : age < 18 ? "hi" : age < 100 ? "welcome" : "나이가 아주 많네 ?";
+
+console.log(message);
+ */
+
+// 자바스크립트의 공식이름
+
+/* let message = prompt("자바스크립트의 공식 이름?");
+
+if (message == "ECMAscript") {
+  console.log("정답!");
+} else {
+  console.log("땡!");
+}
+ */
