@@ -80,9 +80,10 @@ function rem(pxValue, base) {
   // ? if (typeof base === "string") {
   //   parseInt(base, 10); // 뒤에 10 은 10진수
   // }
-
   return `${pxValue / base}rem`;
 }
+
+// console.log(rem("25rem", 10));
 
 // console.assert(rem(20) === "1.25rem");
 // console.assert(rem("30px") === "1.875rem");
@@ -90,7 +91,7 @@ function rem(pxValue, base) {
 
 // rem(20); // * 1.25rem 숫자열
 // rem("30px"); // * '1.825rem' 문자열
-rem("56px", 10); // * '5.6rem'
+// console.log(rem("56px", 10)); // * '5.6rem'
 
 // css(node: string, prop: string, value: number|strung) : string;
 // let css;
@@ -111,3 +112,9 @@ rem("56px", 10); // * '5.6rem'
 // 2. h1의 폰트 사이즈를 가져온다.
 // 3. 증가함수와 감소함수를 만든다.
 // 4. 클릭 이벤트와 바인딩한다.
+
+/* function showMessage(from, text = "여기 노 텍스트") {
+  console.log(from + ": " + text);
+}
+
+showMessage("taek"); // taek : 여기 노 텍스트 */

@@ -53,3 +53,9 @@ while (frontEndDev.length) {
 // while 문 (역순환 : 역방향)
 
 // 성능 진단 : 순환 vs. 역순환
+
+let i = 0;
+while (i < 3) {
+  alert(i);
+  i++;
+}

@@ -32,7 +32,7 @@ let calculateTotal = function (moneyA, moneyB, moneyC, moneyD) {
   // let arr = Array.prototype.slice.call(arguments);
 
   /*  arr.forEach(function (item, index) {
-    // foreach 안에 들어가 있는 함수가 콜백함수
+    foreach 안에 들어가 있는 함수가 콜백함수
     total += item;
   }); */
 
