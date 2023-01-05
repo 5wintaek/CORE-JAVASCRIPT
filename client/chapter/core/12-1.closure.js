@@ -14,7 +14,7 @@ function first() {
     let y = 30;
     return x + y;
   }
-
+  // 함수 자체를 내뱉는다
   return second;
 }
 
@@ -24,11 +24,17 @@ const value = first();
 
 // 전역의 오염을 막기 위해
 
-let count = 0;
-
 function number() {
-  return ++count;
+  let count = 0;
+
+  return function () {
+    return () => ++count;
+  };
 }
+
+const counter = number();
+
+// console.log(count); // 콘솔이 안찍히는 이유는 스코프 떄문에 튕겨져 나가기 떄문. 내부에 접근을 못함
 
 // 모든 함수에는 실행 컨텍스트가 있습니다. 실행 컨텍스트는 해당 함수 내의 변수와
 // 해당 부모 환경에 대한 참조를 의미하는 환경으로 구성됩니다. 상위 환경에 대한 참조는
