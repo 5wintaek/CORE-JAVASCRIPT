@@ -4,12 +4,17 @@
 
 // ? for 문을 while 로 고쳐쓴것
 
-/* let i = 0
-while  (i < 10){
-  i++
-} */
+// let i = 0;
+// while (i < 10) {
+//   i++;
+// }
+// console.log(i);
 
-// ? for문
+// ? for문  //
+
+// for (let i = 0; i < 10; i++) {
+//   console.log(i); // 0부터 9까지 차례대로 출력
+// }
 
 /* for (let i = 0; i < 10; i++) {
   console.log(i);
@@ -37,20 +42,20 @@ for (let d = 1; d <= 10; d++) {
 // ? 여기 확인하기
 const frontEndDev = "HTML CSS SVG JavaScript jQuery React Redux".split(" ");
 
-/* let i = 0;
-let l = frontEndDev.length;
+// let i = 0;
+// let l = frontEndDev.length;
 
-while (i < l) {
-  console.log(frontEndDev[i]);
-  i += 1;
-} */
+// while (i < l) {
+//   console.log(frontEndDev[i]);
+//   i += 1;
+// }
 
 for (let i = 0; i < frontEndDev.length; i++) {
   let result = frontEndDev[i];
 
-  // if (result.includes("SVG") || result.includes("jQuery")) continue;
+  if (result.includes("SVG") || result.includes("jQuery")) continue;
 
-  if (result.includes("jQuery")) break;
+  // if (result.includes("jQuery")) break;
 
   console.log(result);
 }

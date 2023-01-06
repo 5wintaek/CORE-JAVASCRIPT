@@ -21,12 +21,15 @@ do {
 // ! 안에 if 쓴 이유는 처음에 알람창 뜨고 숫자 입력할때 음수 입력 방지입니다
 
 //!! 여기 깃허브 참조
-/* let count = prompt("나 얼마나 돌아?", "");
-
-do {
-  console.log(count--);
-} while (count); */ // count 에 0이 들어오면 실행하지 않게되면서 멈추게 된다.
-
+/* do {
+  if (count <= 0 || !count) {
+    console.log("최초실행");
+    break;
+  }
+  count--;
+  console.log(count);
+} while (count);
+ */
 // do ~ while 문 (순환)
 // - 위 do ~ while 문을 순방향으로 순환되도록 설정
 // nextSibling 은 다음대상을 바로 찾아준다. 주석도 포함

@@ -5,24 +5,24 @@
 //String, Array, Array-like = iterable
 
 // 배열을 가장한 것 진짜 배열은 아님
-const arraylike = {
+const arrayLike = {
   0: "body",
   1: "head",
   2: "div",
   length: 3,
 };
 
-/* for (let value of arraylike) {
+for (let value of arrayLike) {
   console.log(value);
-} */
+}
 
-let str = "유사배열";
+// let str = "유사배열";
 
 // console.log(str);
 
-for (let value of str) {
-  console.log(value);
-}
+// for (let value of str) {
+//   console.log(value);
+// }
 
 const languages = [
   {
