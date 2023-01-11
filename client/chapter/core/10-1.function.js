@@ -21,7 +21,7 @@
 // }
 
 // let result = calcPrice(100, 5000);
-// console.log(result);
+// console.log(result)
 // ! default parameter 사용하기 후
 function getRandomValue() {
   return Math.random() > 0.5 ? 1 : 0;
@@ -69,22 +69,25 @@ console.log(result);
 */
 
 // rem(pxValue: number|string, base: number):string;
+// 단락평가
 function rem(pxValue, base) {
-  typeof pxValue === "string" && (pxValue = parseInt(pxValue, 10));
+  // typeof pxValue === "string" && (pxValue = parseInt(pxValue, 10));
 
-  //  if (typeof pxValue === "string") {
-  //   parseInt(pxValue, 10); // 뒤에 10 은 10진수
-  // }
+  if (typeof pxValue === "string") {
+    pxValue = parseInt(pxValue, 10);
+    // parseInt(pxValue, 10); // 뒤에 10 은 10진수
+  }
 
-  typeof base === "string" && (base = parseInt(base, 10));
-  // ? if (typeof base === "string") {
-  //   parseInt(base, 10); // 뒤에 10 은 10진수
-  // }
+  // typeof base === "string" && (base = parseInt(base, 10));
+  if (typeof base === "string") {
+    base = parseInt(base, 10);
+    // parseInt(base, 10); // 뒤에 10 은 10진수
+  }
   return `${pxValue / base}rem`;
 }
 
-// console.log(rem("25rem", 10));
-
+console.log(rem("25rem ", "10"));
+// console.log(rem(20));
 // console.assert(rem(20) === "1.25rem");
 // console.assert(rem("30px") === "1.875rem");
 // console.assert(rem("56px") === "5.6rem");
@@ -113,8 +116,21 @@ function rem(pxValue, base) {
 // 3. 증가함수와 감소함수를 만든다.
 // 4. 클릭 이벤트와 바인딩한다.
 
-/* function showMessage(from, text = "여기 노 텍스트") {
-  console.log(from + ": " + text);
+// function showMessage(from, text) {
+//   from = "*" + from + "*";
+
+//   console.log(from + ": " + text);
+// }
+
+// let from = "taek";
+
+// showMessage(from); // *taek* : undefiend 출력
+// // console.log(from); // taek ,
+
+function sample(...items) {
+  console.log(items);
 }
 
-showMessage("taek"); // taek : 여기 노 텍스트 */
+sample(1, 2);
+sample(1, 2, 3);
+sample(1, 2, 3, 4);

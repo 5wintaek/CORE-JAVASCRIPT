@@ -19,18 +19,18 @@ const arrowFunction = () => {
 
 //  객체의 메서드로 함수를 실행할 경우는 일반함수로 실행해야 this가 객체를 찾습니다.
 //  메서드 안에서의 함수는 this를 찾기 위해서는 arrowFunction이 오히려 좋아.
-
+// f
 const user = {
   name: "tiger",
   age: 32,
   address: "서울시 중랑구 면목동",
   grades: [80, 90, 100],
   totalGrades: function () {
-    /*  let total = 0;
-    this.grades.forEach((item)=>{
-      this
-    })
-    return total */
+    // let total = 0;
+    // this.grades.forEach((item) => {
+    //   total += item;
+    // });
+    // return total;
 
     function foo() {
       console.log("foo : ", this);
@@ -45,16 +45,33 @@ const user = {
   },
 };
 
-console.log(user.totalGrades());
+// ! 여기 주석 풀기  console.log(user.totalGrades());
 
 /* 다음 함수를 작성해봅니다. -------------------------------------------------- */
 
 // pow(numeric: number, powerCount: number): number;
 // 제곱근으로 만들기
-let pow = (numeric, powercount) => {
-  let result = 1;
-  for (let i = 0; i < powercount; i++) {
-    result *= numeric;
+// let pow = (numeric, powercount) => {
+//   let result = 1;
+//   for (let i = 0; i < powercount; i++) {
+//     result *= numeric;
+//   }
+//   return result;
+// };
+
+// let result = 1;
+// let pow = (numeric, powercount) => {
+//   for (let i = 0; i < powercount; i++) {
+//     result *= numeric;
+//     result = result * numeric
+//   }
+//   return result;
+// };
+
+let result = 1;
+let pow = (a, b) => {
+  for (let i = 0; i < b; i++) {
+    result *= a;
   }
   return result;
 };
@@ -64,7 +81,7 @@ let powExpression = (numeric, powerCount) =>
     .fill(null)
     .reduce((acc) => acc * numeric, 1);
 
-// pow(2, 53); // 9007199254740992
+console.log(pow(2, 53)); // 9007199254740992
 
 // repeat(text: string, repeatCount: number): string;
 let repeat = (text, repeatCount) => {

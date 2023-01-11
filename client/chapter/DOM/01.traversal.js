@@ -35,25 +35,21 @@ let [first, second] = document.querySelectorAll("span"); // span 태그 요소 �
 
 // console.log(first);
 
-//
-function getNode(node) {
-  // 문자열이 아아닌 다른거라면 ?
-  if (typeof node !== "string") {
-    throw new Error("getNode 함수의 인자는 문자 타입 이여야 한다");
-  }
-  return document.querySelector(node);
-}
+// lib 파일에 생성해서 파일을 불러와서 생성
+
+console.log(getNode(".first"));
 
 // first 가 node 로 들어가고 그 결과를 리턴 !
-console.log(getNode(".first"));
-console.log(getNode(".second"));
+// console.log(getNode(".first"));
+// console.log(getNode(".second"));
 
-//  이렇게도 쓸수있지만 ! 1억개라면 ..?  구조분해할당을 사용 위에 에시
+//  ! 이렇게도 쓸수있지만 ! 1억개라면 ..?  구조분해할당을 사용 위에 에시
 // let first = span[0];
 // let second = span[1];
 
 // entries 객체를 배열로 바꿈 , 정확하지않음 찾아보자
 
 /* 문서 대상 확인 */
-// - matches
-// - contains
+// - matches / 여기 안에 매칭이 되냐 ?! 있는게 맞아 ?!
+// getNode 안에 class || id 를 가지고 있느 대상이 있어 ?
+console.log(getNode(".first").matches(".first"));

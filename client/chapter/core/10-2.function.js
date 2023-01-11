@@ -22,14 +22,14 @@ let resultZ = calcTotal(9000, -2500, 5000, 11900);
 // 유사배열은 배열이 아니다. 고로 배열의 능력을 사용하려면 진.짜 배열로 만들어야한다
 // 배열의 능력 : forEach, reduce
 let calculateTotal = function (moneyA, moneyB, moneyC, moneyD) {
-  // console.log(arguments); // 함수 안에서 사용할수있는 유사배열
+  console.log(arguments); // 함수 안에서 사용할수있는 유사배열
 
   let total = 0;
 
   // ? argument 자체를 배열로 만드는법
 
-  let arr = Array.from(arguments); // static method -> 함수 자체에서 제공해주는 것 / 배열 아님 유사배열임
-  // let arr = Array.prototype.slice.call(arguments);
+  // let arr = Array.from(arguments); // static method -> 함수 자체에서 제공해주는 것 / 배열 아님 유사배열임
+  let arr = Array.prototype.slice.call(arguments);
 
   /*  arr.forEach(function (item, index) {
     foreach 안에 들어가 있는 함수가 콜백함수
