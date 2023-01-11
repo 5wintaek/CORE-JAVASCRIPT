@@ -22,6 +22,19 @@ removeClass(".first", "hello");
 
 // - style.cssText - "style" 속성 전체에 대응하므로 스타일 전체에 대한 문자열 저장
 
+first.style.backgroundColor = "red";
+// first.style.transform = "rotate(360deg)";
+
 /* 계산된 스타일 읽기 ------------------------------------------------------- */
 
 // - getComputedStyle(element, [pseudoElement]) `읽기 전용`
+//  객체 안에서 계산된 값을 가져오는 방법
+//  콘솔창에 getComputedStyle(first) 꼭 찍어보기
+let size = getComputedStyle(first).fontSize;
+
+console.log(size);
+
+css("first", "font-size", "100px"); // set
+CSS("first", "font-size"); // get
+
+setCss(".first", "color", "blue");

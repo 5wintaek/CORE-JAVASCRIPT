@@ -36,3 +36,49 @@ function toggleClass(node, className) {
 
   node.classList.toggle(className);
 }
+
+// 자바스크립트에선 객체의 key, value 값을 변수로 받기 위해서는 [ ] 사용
+// 대상에게 속성을 받아서 그 속성 값을 보여줘야함
+function getCss(node, prop) {
+  if (typeof node === "string") {
+    node = getNode(node);
+  }
+  if (!(prop in document.body.style)) {
+    // ( ) 쓴 이유 노션에 정리
+    syntaxError("getCss 함수의 두 번쨰 인자인 prop 은 유효한 css속성이 아닙니다");
+  }
+
+  return getComputedStyle(node)[prop]; // 값을 가져와야 하니깐 return 을 해준다
+}
+
+// return 안한이유
+// 대상에게 원하는 CSS 속성을 추가하는거기 때문에 세팅을 해주는것
+function setCss(node, prop, value) {
+  if (typeof node === "string") {
+    node = getNode(node);
+  }
+  if (!(prop in document.body.style)) {
+    // !(prop ) 쓴 이유 노션에 정리
+    syntaxError("getCss 함수의 두 번쨰 인자인 prop 은 유효한 css속성이 아닙니다");
+  }
+  if (!value) {
+    syntaxError("setCSS 함수의 세 번쨰 인자는 필수값 입니다");
+  }
+
+  node.style[prop] = value;
+}
+
+// console.log(getCss(".first", "font-size")); // 32px // font-size 와 fontSize 가 내장되어있다
+
+function css(node, prop, value) {
+  if (!value) {
+    return getCss(node, prop);
+  } else {
+    setCss(node, prop, value);
+  }
+}
+
+// ? 삼항연산자로 변경시
+// const css = (node, prop, value) => {
+//   return !value ? getCss(node, prop) : setCss(node, prop, value);
+// };
