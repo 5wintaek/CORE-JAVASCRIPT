@@ -10,6 +10,8 @@ function insertBefore(node, text) {
   node.insertAdjacentHTML("beforebegin", text);
 }
 
+
+
 function insertFirst(node, text) {
   if (typeof node === "string") node = getNode(node);
   if (node.nodeType !== document.ELEMENT_NODE) {

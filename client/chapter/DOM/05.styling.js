@@ -12,8 +12,10 @@ const first = getNode(".first");
 console.log(first.className);
 first.classList.add("hello"); // 기존 클래스를 냅두고 추가가 hello 가 추가되었다
 // first.classList.remove("hello"); // 제거
-// first.classList.toggle("is-active") //is-active가 나왔다가 사라졌다가
+first.classList.toggle("is-active") //is-active가 나왔다가 사라졌다가
 // console.log(first.classList.contains("hello")); // hello 라는 클래스가 들어있어 ? true / false
+
+
 
 addClass(".first", "aaa");
 removeClass(".first", "hello");
@@ -23,6 +25,7 @@ removeClass(".first", "hello");
 // - style.cssText - "style" 속성 전체에 대응하므로 스타일 전체에 대한 문자열 저장
 
 first.style.backgroundColor = "red";
+first.style["font-size"] = '100px'
 // first.style.transform = "rotate(360deg)";
 
 /* 계산된 스타일 읽기 ------------------------------------------------------- */
@@ -30,11 +33,14 @@ first.style.backgroundColor = "red";
 // - getComputedStyle(element, [pseudoElement]) `읽기 전용`
 //  객체 안에서 계산된 값을 가져오는 방법
 //  콘솔창에 getComputedStyle(first) 꼭 찍어보기
-let size = getComputedStyle(first).fontSize;
+// 
+let size = getComputedStyle(first)['font-size'];
 
-console.log(size);
+console.log(size); 
 
-css("first", "font-size", "100px"); // set
-CSS("first", "font-size"); // get
+css(".first", "font-size"); // get
+// css(".first", "font-size", "100px"); // set
 
-setCss(".first", "color", "blue");
+// setCss(".first", "color", "blue");
+
+
