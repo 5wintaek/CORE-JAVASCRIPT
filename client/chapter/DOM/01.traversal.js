@@ -22,18 +22,22 @@
 // - getElementById
 // - getElementsByTagName
 // - getElementsByClassName
-// - querySelector
-// - querySelectorAll
-// - closest
+// - querySelector 첫번쨰 css 선택자
+// - querySelectorAll 
+// - closest - 부모방향으로 문서트리를 순회
+// nodelist forEach ? // 유사배열들이 배열 매서드가 안되는데 Nodelist 는 forEach 가능
+// 
+
+
 
 // let first = document.querySelector(".first"); // first 클래스 찾음
 
-// let span = document.querySelectorAll("span"); // span 태그 요소 찾음
+let span = document.querySelectorAll("span"); // span 태그 요소 찾음
 
 // ! 구조분해할당
 let [first, second] = document.querySelectorAll("span"); // span 태그 요소 찾음
 
-// console.log(first);
+console.log(first);
 
 // lib 파일에 생성해서 파일을 불러와서 생성
 
@@ -44,8 +48,8 @@ console.log(getNode(".first"));
 // console.log(getNode(".second"));
 
 //  ! 이렇게도 쓸수있지만 ! 1억개라면 ..?  구조분해할당을 사용 위에 에시
-// let first = span[0];
-// let second = span[1];
+// let first = span[0]; 
+// let second = span[1]; 
 
 // entries 객체를 배열로 바꿈 , 정확하지않음 찾아보자
 
@@ -53,3 +57,5 @@ console.log(getNode(".first"));
 // - matches / 여기 안에 매칭이 되냐 ?! 있는게 맞아 ?!
 // getNode 안에 class || id 를 가지고 있느 대상이 있어 ?
 console.log(getNode(".first").matches(".first"));
+
+

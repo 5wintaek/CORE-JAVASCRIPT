@@ -26,24 +26,34 @@
 //  ? getNode
 
 let first = getNode(".first");
-console.log(first); // first 클래스 속해있는 태그 전부 다 나옴
+// console.log(first); // first 클래스 속해있는 태그 전부 다 나옴
 
 // - nodeType
+// true false
 // first.nodeType = 1 이다
-console.log(first.nodeType === document.ELEMENT_NODE);
-console.log(first.nodeType === 1);
+// first.nodeType 
+// nodeType 으로 하면 숫자로 반환된다. typeof 랑 다름
+// Array.isArray() - 배열인지 아닌지 판별
+// Array.from() - 유사배열을 진짜 배열로 만들어줌 [...arg]
+// NodeType 1 , 3 , 9 번 잘나옴
+// !
+// console.log(first.nodeType === document.ELEMENT_NODE);
+// console.log(first.nodeType === 1);
+// console.log(first.nodeType);
 
 // - nodeName (vs. tagName)
-console.log(first.nodeName === "SPAN"); //
-console.log(first.tagName === "SPAN");
+// 노드네임은 항상 대문자로 나온다 꼭 기억
+// 
+// console.log(first.nodeName === "SPAN"); 
+// console.log(first.tagName === "SPAN");
 
 /* 노드 콘텐츠 읽기/쓰기 ---------------------------------------------------- */
 
 // - innerHTML
 // 앞으로 갈 수는 없음 뒤에만 붙일 수 있음
 first.innerHTML = "like Lion";
-// first.innerHTML += "like Lion";
-// first.innerHTML += "<strong>like Lion</strong>";
+first.innerHTML += "like Lion";
+first.innerHTML += "<strong>like Lion</strong>";
 
 // * 기존 내용 삭제
 first.innerHTML = " ";
@@ -71,7 +81,7 @@ first.textContent = "난 짱짱이다"; // set
 
 // ! 예시
 // toggle 에 false 를 잡든 true 를 잡든 잘 돌아가는데 그 이유가 무엇일까요 ?
-let toggle = true;
+let toggle = false;
 
 setInterval(() => {
   getNode("h1").hidden = toggle ? false : true;

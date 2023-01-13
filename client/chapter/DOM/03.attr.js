@@ -22,11 +22,12 @@
 let first = getNode(".first");
 
 // - elementNode.hasAttribute(name) – 속성 존재 여부 확인
-// console.log(first.hasAttribute("class")); // true or false
+// 비표준 속성도 속성 존재 여부를 확인해준다
+// console.log(first.hasAttribute("some")); // true or false
 
 // - elementNode.getAttribute(name) – 속성값을 가져옴
-// console.log(first.getAttribute("class"));
-// console.log(first.getAttribute("class") === "first"); // hasAttribute 처럼 사용하기
+// console.log(first.getAttribute("class")); // first
+// console.log(first.getAttribute("class") === "first"); // hasAttribute 처럼 사용하기 
 
 // - elementNode.setAttribute(name, value) – 속성값을 변경함
 first.setAttribute("id", "box"); // id 값을 box 로 하겠다
@@ -57,7 +58,7 @@ for (let value of first.attributes) {
 // data-* 속성을 사용하면 읽기 쉽고, 수정도 손쉽습니다.
 
 // - elementNode.dataset
-
+// dataset.play  =  data-play 
 first.dataset.play = "playing"; // set  , playing 이라는 비표준 속성을 만들었음
 
 // console.log(first.dataset.play); // get
