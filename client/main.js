@@ -4,6 +4,7 @@
 const firstInput = getNode('#firstNumber') 
 const secondInput = getNode('#secondNumber')
 const done = getNode('#done')
+const result = getNode('.result')
 
 
 // input 만 가능하다
@@ -47,6 +48,16 @@ function handler(e){
 
 }
 
+function inputHandler(){
+  let firstValue = +getInputValue(firstInput)
+  let secondValue = +getInputValue(secondInput)
+  let total = sum(firstValue,secondValue)
+
+  // getNode 
+  clearContents(result)
+  insertLast(result,total)
+  
+}
 
 
 // done을 클릭하면 나오는 이벤트
