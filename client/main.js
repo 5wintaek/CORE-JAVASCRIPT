@@ -1,5 +1,7 @@
 /* eslint no-undef:'warn'*/
 
+import { getNode } from "./lib/dom/getNode.js";
+import { attr } from './lib/dom/attr.js'
 
 const firstInput = getNode('#firstNumber') 
 const secondInput = getNode('#secondNumber')

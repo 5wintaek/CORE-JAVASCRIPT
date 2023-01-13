@@ -77,7 +77,7 @@ function setCss(node,prop,value){
 }
 
 
-const css = (node,prop,value) => { 
+export const css = (node,prop,value) => { 
   return !value ? getCss(node,prop) : setCss(node,prop,value) 
 }
 
