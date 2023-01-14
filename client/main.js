@@ -1,5 +1,3 @@
-/* eslint no-undef:'warn'*/
-
 
 
 const firstInput = getNode('#firstNumber') 
