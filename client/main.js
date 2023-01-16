@@ -1,5 +1,5 @@
 
-import { attr, diceAnimation, disableElement, enableElement, getNode,getNodes, insertLast, invisibleElement, visibleElement  } from "./lib/index.js";
+import { clearContents, attr, diceAnimation, disableElement, enableElement, getNode,getNodes, insertLast, invisibleElement, visibleElement  } from "./lib/index.js";
 
 
 
@@ -67,8 +67,12 @@ const handleRecord = ()=>{
 }
 
 const handleReset = ()=>{
+  count = 0
+  total = 0
   
   invisibleElement(recordListWrapper)
+
+  clearContents('.recordListWrapper tbody')
 }
 
 
