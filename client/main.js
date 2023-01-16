@@ -22,12 +22,16 @@ const handlerRollingDice = (()=>{
   
   return () =>{
     if(!isRolling){
+       // console.log('첫번째 클릭');
       stopAnimation = setInterval(diceAnimation,100) 
       disableElement(recordButton)
+      disableElement(resetButton)
 
     }else{
-      clearInterval(stopAnimation)
+       // console.log('두번째 클릭');
+      clearInterval(stopAnimation);
       enableElement(recordButton)
+      enableElement(resetButton)
     }
     isRolling = !isRolling
   }
