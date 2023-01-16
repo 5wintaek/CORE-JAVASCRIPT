@@ -11,8 +11,9 @@ const rollingDiceButton = getNode('.buttonGroup > button:nth-child(1)')
 
 
 
-const handlerRollingDice = () => {
+// IIFE
 
+const handlerRollingDice = (()=>{
   let isRolling = false
   let stopAnimation;
   
@@ -24,8 +25,7 @@ const handlerRollingDice = () => {
     }
     isRolling = !isRolling
   }
-}
-
+})()
 
 
 
