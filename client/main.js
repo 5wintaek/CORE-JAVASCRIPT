@@ -29,7 +29,6 @@ function clickSubmitHandler(e){
   // 이름창에 이름이 아예 안들어왔을때 나오는 코드
   if(!name){
     showAlert('.alert-error', '잘못된 정보입니다.!', 2000);
-
     // ? GSAP 사용
     gsap.fromTo(resultArea, 0.01, {x:-5}, {x:5, clearProps:"x", repeat:20})
     // addClass(resultArea,'shake')
