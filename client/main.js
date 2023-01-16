@@ -1,5 +1,5 @@
 
-import { diceAnimation, disableElement, enableElement, getNode,getNodes  } from "./lib/index.js";
+import { diceAnimation, disableElement, enableElement, getNode,getNodes, visibleElement  } from "./lib/index.js";
 
 
 
@@ -9,14 +9,16 @@ const [rollingDiceButton,recordButton,resetButton] = getNodes('.buttonGroup > bu
 // const recordButton = getNode('.buttonGroup > button:nth-child(2)');
 // const resetButton = getNode('.buttonGroup > button:nth-child(3)');
 
+
+
 // 주사위 굴리기 노드 잡기
 
-
+const recordListWrapper = getNode('.recordListWrapper')
 
 
 // IIFE
 
-const handlerRollingDice = (()=>{
+const handleRollingDice = (()=>{
   let isRolling = false
   let stopAnimation;
   
@@ -38,7 +40,18 @@ const handlerRollingDice = (()=>{
 })()
 
 
+const handleRecord = ()=>{
+  
+  visibleElement(recordListWrapper)
+}
+
+const handleReset = ()=>{
+  
+  visibleElement(recordListWrapper)
+}
 
 
 
-rollingDiceButton.addEventListener('click',handlerRollingDice)
+rollingDiceButton.addEventListener('click',handleRollingDice)
+recordButton.addEventListener('click',handleRecord)
+resetButton.addEventListener('click',handleReset)
