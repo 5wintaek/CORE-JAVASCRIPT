@@ -1,5 +1,5 @@
 
-import { diceAnimation, disableElement, enableElement, getNode,getNodes, insertLast, invisibleElement, visibleElement  } from "./lib/index.js";
+import { attr, diceAnimation, disableElement, enableElement, getNode,getNodes, insertLast, invisibleElement, visibleElement  } from "./lib/index.js";
 
 
 
@@ -10,17 +10,21 @@ const [rollingDiceButton,recordButton,resetButton] = getNodes('.buttonGroup > bu
 // const resetButton = getNode('.buttonGroup > button:nth-child(3)');
 
 
+let count = 0 
+let total = 0
 // 기록을 뿌려야함 tBody
 function renderRecordListItem(){
+  let diceValue = +attr('#cube','data-dice') // 문자형이여서 +
   let template =  /* html */`
   <tr>
-    <td>0</td>
-    <td>5</td>
-    <td>5</td>
+    <td>${++count}</td> 
+    <td>${diceValue}</td>
+    <td>${total = total + diceValue}</td>
   </tr> 
   `
   // 아래로 쌓이게 하려고 inserLast 사용
   insertLast('.recordListWrapper tbody',template)
+  recordListWrapper.scrollTop = recordListWrapper.scrollHeight
 }
 
 
