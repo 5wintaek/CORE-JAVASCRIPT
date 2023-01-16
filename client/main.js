@@ -1,5 +1,5 @@
 
-import { diceAnimation, disableElement, enableElement, getNode,getNodes, visibleElement  } from "./lib/index.js";
+import { diceAnimation, disableElement, enableElement, getNode,getNodes, insertLast, invisibleElement, visibleElement  } from "./lib/index.js";
 
 
 
@@ -10,14 +10,29 @@ const [rollingDiceButton,recordButton,resetButton] = getNodes('.buttonGroup > bu
 // const resetButton = getNode('.buttonGroup > button:nth-child(3)');
 
 
+// 기록을 뿌려야함 tBody
+function renderRecordListItem(){
+  let template =  /* html */`
+  <tr>
+    <td>0</td>
+    <td>5</td>
+    <td>5</td>
+  </tr> 
+  `
+  // 아래로 쌓이게 하려고 inserLast 사용
+  insertLast('.recordListWrapper tbody',template)
+}
+
 
 // 주사위 굴리기 노드 잡기
-
 const recordListWrapper = getNode('.recordListWrapper')
 
 
-// IIFE
 
+// IIFE
+/* -------------------------------------------------------------------------- */
+/*                                  // event                                  */
+/* -------------------------------------------------------------------------- */
 const handleRollingDice = (()=>{
   let isRolling = false
   let stopAnimation;
@@ -43,11 +58,13 @@ const handleRollingDice = (()=>{
 const handleRecord = ()=>{
   
   visibleElement(recordListWrapper)
+
+  renderRecordListItem();
 }
 
 const handleReset = ()=>{
   
-  visibleElement(recordListWrapper)
+  invisibleElement(recordListWrapper)
 }
 
 
