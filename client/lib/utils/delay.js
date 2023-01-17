@@ -6,6 +6,14 @@ function delay(callback,timeout = 1000){
   setTimeout(callback,timeout)
 }
 
+
+
+// first.style.top = '-100px';
+// first.style.transform = 'rotate(360deg)';
+// first.style.top = '0px';
+
+
+// delay 콜백함수로 바꿔줌 ↑
 delay(()=>{
   first.style.top = '-100px'
   delay(()=>{
