@@ -7,7 +7,7 @@
 */
 
 // xhrData 함수 만들기
-function xhrData(method,url){
+function xhrData(method,url,body){
   const xhr = new XMLHttpRequest()
 
 
@@ -27,6 +27,31 @@ xhr.addEventListener("readystatechange", () => {
   
 });
 // 서버에 요청
-xhr.send()
+xhr.send(JSON.stringify(body))
 }
-xhrData('GET','https://jsonplaceholder.typicode.com/users')
+
+// 어떠한 행동, 여기 사이트에서 , 이걸로 통신해줘
+// 아 기존을 갖고있던게 10 개인데 우리가 POST로 1개 더 만들어서 11번
+xhrData('POST','https://jsonplaceholder.typicode.com/users',{
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  },
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }
+},)
