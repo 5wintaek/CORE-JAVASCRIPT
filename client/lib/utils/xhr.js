@@ -7,7 +7,7 @@
 */
 
 // xhrData 함수 만들기
-function xhrData({
+export function xhrData({
   url = '',
   method = 'GET',
   body = null,
@@ -22,7 +22,7 @@ function xhrData({
 
 const xhr = new XMLHttpRequest()
 // 비동기 통신 오픈 시작을 알림
-console.log(xhr);
+// console.log(xhr);
 xhr.open(method,url)
 
 Object.entries(headers).forEach(([key,value])=>{
@@ -34,7 +34,7 @@ xhr.addEventListener("readystatechange", () => {
   
   if(status >= 200 && xhr.status < 400){
     if(readyState === 4){
-      console.log('통신성공');
+      // console.log('통신성공');
       onSuccess(JSON.parse(response))
       // console.log(JSON.parse(response));
     }
@@ -48,15 +48,69 @@ xhr.addEventListener("readystatechange", () => {
 xhr.send(JSON.stringify(body))
 }
 
-xhrData({
-  url: 'https://jsonplaceholder.typicode.com/users',
-  onSuccess : (result)=>{
+// xhrData({
+//   url: 'https://jsonplaceholder.typicode.com/users',
+//   onSuccess : (result)=>{
+//     console.log(result);
+//   },
+//   onFail : (error)=>{
+//     console.log(error);
+//   }
+// })
+
+xhrData.get = (url,onSuccess,onFail) => {
+  xhrData({
+    url,
+    onSuccess,
+    onFail
+  })
+}
+
+xhrData.post = (url,body,onFail,onSuccess) => {
+  xhrData({
+    body,
+    url,
+    onSuccess,
+    onFail
+  })
+}
+
+xhrData.delete = (url,body,onSuccess,onFail)  => {
+  xhrData({
+    method : 'DELETE',
+    url,
+    onSuccess,
+    onFail
+  })
+}
+
+
+
+xhrData.put = (url,body,onSuccess,onFail) =>{
+  xhrData({
+    method:'PUT',
+    body,
+    url,
+    onSuccess,
+    onFail
+  })
+}
+
+
+
+xhrData.get(
+  'https://jsonplaceholder.typicode.com/users',
+  (result)=>{
     console.log(result);
   },
-  onFail : (error)=>{
-    console.log(error);
+  (err)=>{
+    console.log(err);
   }
-})
+)
+
+
+
+
 
 // 어떠한 행동, 여기 사이트에서 , 이걸로 통신해줘
 // 아 기존을 갖고있던게 10 개인데 우리가 POST로 1개 더 만들어서 11번
