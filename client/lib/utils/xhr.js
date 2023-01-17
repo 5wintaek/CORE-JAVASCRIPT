@@ -11,6 +11,8 @@ function xhrData({
   url = '',
   method = 'GET',
   body = null,
+  onSuccess = null,
+  onFail = null,
   headers = {
     'Content-Type':'application/json'
    }
@@ -20,6 +22,7 @@ function xhrData({
 
 const xhr = new XMLHttpRequest()
 // 비동기 통신 오픈 시작을 알림
+console.log(xhr);
 xhr.open(method,url)
 
 Object.entries(headers).forEach(([key,value])=>{
@@ -32,10 +35,12 @@ xhr.addEventListener("readystatechange", () => {
   if(status >= 200 && xhr.status < 400){
     if(readyState === 4){
       console.log('통신성공');
-      console.log(JSON.parse(response));
+      onSuccess(JSON.parse(response))
+      // console.log(JSON.parse(response));
     }
   }else{
-    console.log('통신 실패');
+    // console.log('통신 실패');
+    onFail('통신 실패')
   }
   
 });
@@ -45,7 +50,12 @@ xhr.send(JSON.stringify(body))
 
 xhrData({
   url: 'https://jsonplaceholder.typicode.com/users',
-
+  onSuccess : (result)=>{
+    console.log(result);
+  },
+  onFail : (error)=>{
+    console.log(error);
+  }
 })
 
 // 어떠한 행동, 여기 사이트에서 , 이걸로 통신해줘
