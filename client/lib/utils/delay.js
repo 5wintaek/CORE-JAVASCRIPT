@@ -14,7 +14,8 @@ function delay(callback,timeout = 1000){
 // first.style.top = '0px';
 
 
-// // delay 콜백함수로 바꿔줌 ↑
+// // delay 콜백함수로 바꿔줌 ↑ 
+// ? 콜백지옥을 피하기 위해 이건 쓰지않음
 // delay(()=>{
 //   first.style.top = '-100px'
 //   delay(()=>{
@@ -67,10 +68,9 @@ export function delayP(options = {}){
   }
 
 
-  
-
   const {shouldReject,data,errorMessage,timeout} = config
 
+  //  ! 프로미스 사용
   return new Promise((resolve, reject)=>{
 
     setTimeout(() => {
@@ -83,6 +83,9 @@ export function delayP(options = {}){
 // delayP(3000).then((res)=>{
 //   console.log(res); 
 // })
+
+
+
 // 위에 promise resolve 값을 then을 통해 값을 내뱉음
 // delayP().then((res)=>{
 //   console.log(res);
@@ -124,7 +127,7 @@ async function 라면끓이기(){
   throw new Error('계란 껍질이 들어가버렸다!')
   await delayP(1500)
   console.log('그릇에담기');
-  
+
 }catch(err){
   console.log(err);
 }

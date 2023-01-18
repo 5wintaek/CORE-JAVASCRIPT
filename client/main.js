@@ -1,30 +1,16 @@
 import { 
   xhrData,
   insertLast,
-  xhrPromise
+  xhrPromise,
+  tiger,
+  delayP,
  } from "./lib/index.js";
 
 
-//  xhrPromise
-// .get('https://jsonplaceholder.typicode.com/users/1')
-// .then((res)=>{
-//   insertLast(document.body,JSON.stringify(res));
-// })
-// .catch((err)=>{
-//   console.log(err);
-// })
+async function render(){
+await delayP(2000)
+let response = await tiger.get('https://jsonplaceholder.typicode.com/users')
+ console.log(response.data); 
+}
 
-
-// xhrData.get(
-//   'https://jsonplaceholder.typicode.com/users/1',
-//   (res)=>{
-//     insertLast('body',JSON.stringify(res))
-    
-//   },
-//   (err)=>{
-//     insertLast('body',err)
-//   }
-// )
-
-
-
+render()
