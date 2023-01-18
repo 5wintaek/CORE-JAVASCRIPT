@@ -52,7 +52,7 @@ const defaultOptions = {
 
 
 
-function delayP(options = {}){
+export function delayP(options = {}){
 
   // 위에 객체가 복사되서 객체로 담기는것 , 기본값으로 남아있어야 하므로
   let config = {...defaultOptions};
@@ -80,9 +80,9 @@ function delayP(options = {}){
 }
 
 // options 를 인수를 받음
-delayP(3000).then((res)=>{
-  console.log(res); 
-})
+// delayP(3000).then((res)=>{
+//   console.log(res); 
+// })
 // 위에 promise resolve 값을 then을 통해 값을 내뱉음
 // delayP().then((res)=>{
 //   console.log(res);
