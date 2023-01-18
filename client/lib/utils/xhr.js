@@ -35,7 +35,7 @@ xhr.addEventListener("readystatechange", () => {
   
   if(status >= 200 && xhr.status < 400){
     if(readyState === 4){
-      console.log('통신성공');
+      // console.log('통신성공');
       onSuccess(JSON.parse(response))
       // console.log(JSON.parse(response));
     }
@@ -103,7 +103,7 @@ xhrData.put = (url,body,onSuccess,onFail) =>{
 xhrData.get(
   'https://jsonplaceholder.typicode.com/users',
   (result)=>{
-    console.log(result);
+    // console.log(result);
   },
   (err)=>{
     console.log(err);
@@ -117,7 +117,7 @@ xhrData.post(
     console.log(result);
   },
   (err)=>{
-    console.log(err);
+    // console.log(err);
   }
 )
 
@@ -150,7 +150,7 @@ const defaultOptions = {
 }
 
 
-function xhrPromise(options = {}){
+export function xhrPromise(options = {}){
 
 
   const xhr = new XMLHttpRequest();
@@ -183,12 +183,52 @@ function xhrPromise(options = {}){
 
 
 
-xhrPromise({
-  url:'https://jsonplaceholder.typicode.com/users/1'
-})
-.then((res)=>{
-  console.log(res);
-})
-.catch((err)=>{
-  console.log(err);
-})
+// xhrPromise({
+//   url:'https://jsonplaceholder.typicode.com/users/1'
+// })
+// .then((res)=>{
+//   console.log(res);
+// })
+// .catch((err)=>{
+//   console.log(err);
+// })
+
+xhrPromise.get = (url) => {
+  return xhrPromise({
+    url
+  })
+}
+
+xhrPromise.post = (url) => {
+  return xhrPromise({
+    url,
+    body,
+    method:'POST'
+  })
+}
+
+xhrPromise.put = (url,body) => {
+  return xhrPromise({
+    url,
+    body,
+    method:'PUT'
+  })
+}
+
+xhrPromise.delete = (url) => {
+  return xhrPromise({
+    url,
+    method:'DELETE'
+  })
+}
+
+
+
+// xhrPromise
+// .get('https://jsonplaceholder.typicode.com/users/1')
+// .then((res)=>{
+//   console.log(res);
+// })
+// .catch((err)=>{
+//   console.log(err);
+// })
