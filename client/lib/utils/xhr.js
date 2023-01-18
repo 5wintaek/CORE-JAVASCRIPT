@@ -25,16 +25,17 @@ const xhr = new XMLHttpRequest()
 // console.log(xhr);
 xhr.open(method,url)
 
-Object.entries(headers).forEach(([key,value])=>{
-  xhr.setRequestHeader(key,value)
-})
+// Object.entries(headers).forEach(([key,value])=>{
+//   xhr.setRequestHeader(key,value)
+// })
 
 xhr.addEventListener("readystatechange", () => {
   const {status,readyState,response} = xhr; // 객체 구조 분해 할당 
   
+  
   if(status >= 200 && xhr.status < 400){
     if(readyState === 4){
-      // console.log('통신성공');
+      console.log('통신성공');
       onSuccess(JSON.parse(response))
       // console.log(JSON.parse(response));
     }
@@ -45,6 +46,7 @@ xhr.addEventListener("readystatechange", () => {
   
 });
 // 서버에 요청
+// console.log(JSON.stringify(body));
 xhr.send(JSON.stringify(body))
 }
 
@@ -75,6 +77,7 @@ xhrData.post = (url,body,onFail,onSuccess) => {
   })
 }
 
+
 xhrData.delete = (url,body,onSuccess,onFail)  => {
   xhrData({
     method : 'DELETE',
@@ -83,7 +86,6 @@ xhrData.delete = (url,body,onSuccess,onFail)  => {
     onFail
   })
 }
-
 
 
 xhrData.put = (url,body,onSuccess,onFail) =>{
@@ -107,6 +109,18 @@ xhrData.get(
     console.log(err);
   }
 )
+
+xhrData.post(
+  'https://jsonplaceholder.typicode.com/users',
+  {"name" : "hello"},
+  (result)=>{
+    console.log(result);
+  },
+  (err)=>{
+    console.log(err);
+  }
+)
+
 
 
 
