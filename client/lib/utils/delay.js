@@ -41,23 +41,25 @@ delayP()
 
 
 
-function delayP(timeout = 1000){
+function delayP(shouldReject = false , timeout = 1000, data = '성공했습니다',errorMessage = '오류발생'){
 
   return new Promise((resolve, reject)=>{
 
     setTimeout(() => {
-      resolve('성공!')
+      !shouldReject ? resolve(data) : reject(errorMessage);
     }, timeout);
   })
 }
-
+delayP(false,1000,'진짜 성공','오류가 발생했다!!').then((res)=>{
+  console.log(res); 
+})
 // 위에 promise resolve 값을 then을 통해 값을 내뱉음
-delayP().then((res)=>{
-  console.log(res);
-})
-.catch((err)=>{
-  console.log(err);
-})
+// delayP().then((res)=>{
+//   console.log(res);
+// })
+// .catch((err)=>{
+//   console.log(err);
+// })
 
 
 
