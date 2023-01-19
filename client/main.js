@@ -2,8 +2,8 @@ import {
   insertLast,
   tiger,
   delayP,
-  creatUsercard,
   getNode,
+  renderUserCard,
  } from "./lib/index.js";
 
 
@@ -25,7 +25,8 @@ async function rendingUserList(){
 
   console.log(userData);
 
-  insertLast(userCardContainer,creatUsercard(userData))
+  renderUserCard(userCardContainer,userData)
+
   
 }
 

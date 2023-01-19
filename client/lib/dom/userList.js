@@ -1,8 +1,9 @@
+import { insertLast } from "./insert.js"
 
 
 
 // 2. 받는 순간 다시 구조분해할당  , 기본값을 넣어줌
-export const creatUsercard = ({
+ const creatUsercard = ({
   id = '',
   name = 'taek',
   email = 'taek@email.com',
@@ -26,3 +27,6 @@ export const creatUsercard = ({
 `
 }
 
+export const renderUserCard = (target,data) => {
+  insertLast(target,creatUsercard(data))
+}
