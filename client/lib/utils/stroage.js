@@ -38,10 +38,10 @@ const albums = [
 ];
 
 
-function saveStorage(key,value){
+export function saveStorage(key,value){
   return new Promise((resolve,reject)=>{
     if(isString(key)){
-      storage.setItem(key,value)
+      storage.setItem(key,serialize(value))
       resolve()
     }else{
       reject({message:'key는 문자 타입 이어야 합니다.'})
@@ -49,7 +49,38 @@ function saveStorage(key,value){
   })
 }
 
-saveStorage('name','tiger');
+// 프로미스를 사용하는 이유는 then 을 받으려고
+saveStorage('name',albums);
+
+// 어떤값을 저장하기 위해 만든 스토리지
+// 브라우저에 정보를 저장할 때 localstorage를 사용한다
+export function localStorage(key) {
+  return new Promise((resolve,reject)=>{
+    if(isString(key)){
+      resolve(deserialize(storage.getItem(key)))
+    }else{
+      reject({message:'key는 문자 타입 이어야 합니다.'})
+    }
+  })
+}
+
+export function deleteStorage(key){
+  return new Promise((resolve,reject)=>{
+    if(!key){
+      storage.clear();
+    }else{
+      storage.removeItem(key)
+    }
+  })
+}
+
+// saveStorage('name',albums)
+
+// localStorage('name').then((res)=>{
+//   console.log(res);
+// })
+
+
 
 
 
