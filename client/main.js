@@ -4,10 +4,13 @@ import {
   insertLast,
   tiger,
   delayP,
-  getNode,
+  getNode as $ ,
   changeColor,
   renderUserCard,
   renderSpinner,
+  renderEmptyCard,
+  getNode
+  
  } from "./lib/index.js";
 
 
@@ -20,7 +23,7 @@ import {
 // 4. renderUserCard 함수를 사용했을 때 렌더링이 잘 될 수 있도록
 
 
-const userCardContainer = getNode('.user-card-inner')
+const userCardContainer = $('.user-card-inner')
 
 async function rendingUserList(){
 
@@ -29,7 +32,7 @@ async function rendingUserList(){
   try{
     await delayP(2000)
 
-    getNode('.loadingSpinner').remove()
+    $('.loadingSpinner').remove()
 
     let response = await tiger.get( 'https://jsonplaceholder.typicode.com/users' );
 
@@ -49,13 +52,23 @@ async function rendingUserList(){
     })
   }
   catch(err){
-    console.log(err);
+    // console.log(err);
+    renderEmptyCard(userCardContainer)
   }
-  
-
 }
 
 rendingUserList();
+
+
+
+// 삭제 버튼을 클릭하면 콘솔창에 '삭제' 글자가 출력이 될 수 있도록 만들어 주세요
+
+getNode('.delte')
+
+userCardContainer.addEventListener('click',(e)=>{
+  console.log(e.target);
+})
+
 
 
 
