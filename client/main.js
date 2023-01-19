@@ -77,8 +77,11 @@ function handler(e){
 
   let id = attr(article,'data-index').slice(5)
 
-  tiger.delete(` http://localhost:3000/users/${id}`)
-  
+  // 카드를 지우고 난 뒤에 데이터상에는 바로 사라지고 유저 화면에서는 새로고침 후 사라진다. 이걸 새로고침을 안하려면 어떻게 할까 ? ->then
+  tiger.delete(` http://localhost:3000/users/${id}`).then(()=>{
+    userCardContainer.innerHTML = '';
+    rendingUserList()
+  })
   
 }
 
