@@ -23,7 +23,7 @@ export const tiger = async (options = {}) =>{
     headers: {...defaultOptions.headers  , ...options.headers  }
   }
 
-  console.log(restOptions);
+  // console.log(restOptions);
 
 
   // fetch 자체가 url 값을 가져간다ㅣ

@@ -1,16 +1,23 @@
 import { 
-  xhrData,
   insertLast,
-  xhrPromise,
   tiger,
   delayP,
  } from "./lib/index.js";
 
 
-async function render(){
-await delayP(2000)
-let response = await tiger.get('https://jsonplaceholder.typicode.com/users')
- console.log(response.data); 
+// rendingUserList 함수 만들기
+// 
+
+async function rendingUserList(){
+  let response = await tiger.get('https://jsonplaceholder.typicode.com/users')
+
+  let userData = response.data
+
+  console.log(userData);
 }
 
-render()
+// rendingUserList()
+
+
+
+
