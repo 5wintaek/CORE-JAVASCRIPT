@@ -129,7 +129,7 @@ async function 라면끓이기(){
   console.log('그릇에담기');
 
 }catch(err){
-  console.log(err);
+  // console.log(err);
 }
 }
 

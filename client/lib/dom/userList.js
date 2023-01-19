@@ -1,11 +1,15 @@
 
 
 
+// 2. 받는 순간 다시 구조분해할당  , 기본값을 넣어줌
+export const creatUsercard = ({
+  id = '',
+  name = 'taek',
+  email = 'taek@email.com',
+  website = 'goood@name'
+} ={}) => { 
+  // = {} 빈 객체를 넣어준다는 뜻인데 없어도 된다.
 
-const creatUsercard = (user) => {
-
-  // 다시 user에게 구조분해할당 : user.id , user.email 이런짓을 하지 않기 위해 사용
-  const {id,name,email,website ='사이트' } = user
   return /* html */`
   <article class="user-card" data-index="user-${id}">
   <h3 class="user-name">${name}</h3>
@@ -21,11 +25,4 @@ const creatUsercard = (user) => {
 </article>
 `
 }
-creatUsercard(1,'tiger','eamil','website')
 
-
-console.log(creatUsercard({
-  id :1,
-  name : 'tiger',
-  email : 'tiger@mail',
-}));
