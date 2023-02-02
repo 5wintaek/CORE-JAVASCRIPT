@@ -40,8 +40,9 @@ function clickSubmitHandler(e){
 
   if(isNumericString(name)){
     console.log('제대로된 이름을 입력하세요');
+    gsap.fromTo(resultArea, 0.01, {x:-5}, {x:5, clearProps:"x", repeat:20})
     showAlert('.alert-error', '정확한 이름을 입력해주세요!', 2000);
-    return 
+    return;
   }
 
   // console.log(pick);
