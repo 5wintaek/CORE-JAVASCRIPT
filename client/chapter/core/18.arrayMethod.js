@@ -3,7 +3,7 @@
 /* ---------------------------------------------------------------------- */
 
 // Array.isArray //이게 진짜 배열인지 확인하는방법
-const arr = [10, 100, 1000, 10000];
+const arr = [10, 100, 1000, 10000]
 
 // console.log(typeof arr);
 // console.log(Array.isArray(arr));
@@ -36,11 +36,11 @@ span.forEach((item, index) => {
 // shift
 // reverse
 // arr.reverse();
-console.log(arr);
+// console.log(arr);
 
 // splice(시작인덱스,제거,추가)
 arr.splice(1, 0, 23, 5); // 1번쨰 인덱스부터 0번째는 제거하지않고 23,5를 추가할거야
-console.log("arr", arr);
+console.log("arr", arr); // [10, 23, 5, 100, 1000, 10000]
 
 // sort
 // 반환 값 < 0 : a가 b보다 앞에 있어야 한다
@@ -65,6 +65,7 @@ let template = todo.map((todoList) => {
   return /* HTML */ `<li>${todoList}</li>`;
 });
 
+console.log(template);
 // template.forEach((item) => {
 //   document.body.insertAdjacentHTML("beforeend", item);
 // });
